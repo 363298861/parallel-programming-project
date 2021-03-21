@@ -1,0 +1,28 @@
+# By Brendan, 13/Jan/16
+
+NN_stencil
+Vy*(Vy - 1.0)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j + 1)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j + 1)/2 + (1.0-Ux*Ux)*Vh(u, i, j + 1))/2 + Vy*(Vy + 1.0)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j - 1)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j - 1)/2 + (1.0-Ux*Ux)*Vh(u, i, j - 1))/2 + (1.0-Vy*Vy)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j)/2 + (1.0-Ux*Ux)*Vh(u, i, j))
+
+NW_stencil
+Vy*(Vy/2-1.0)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j + 2)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j + 2)/2 + (1.0-Ux*Ux)*Vh(u, i, j + 2))/4 + Vy*(Vy/2+1.0)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j - 2)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j - 2)/2 + (1.0-Ux*Ux)*Vh(u, i, j - 2))/4 + (-Vy*Vy/4 + 1)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j)/2 + (1.0-Ux*Ux)*Vh(u, i, j))
+
+NF_stencil
+(-Vy*Vy/16 + 9.0/16)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j - 1)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j - 1)/2 + (1.0-Ux*Ux)*Vh(u, i, j - 1)) + (-Vy*Vy/16 + 9.0/16)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j + 1)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j + 1)/2 + (1.0-Ux*Ux)*Vh(u, i, j + 1)) + (Vy*Vy/16 - Vy/6 - 1.0/16)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j + 3)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j + 3)/2 + (1.0-Ux*Ux)*Vh(u, i, j + 3)) + (Vy*Vy/16 + Vy/6 - 1.0/16)*(Ux*(Ux - 1.0)*Vh(u, i + 1, j - 3)/2 + Ux*(Ux + 1.0)*Vh(u, i - 1, j - 3)/2 + (1.0-Ux*Ux)*Vh(u, i, j - 3))
+
+WN_stencil
+Vy*(Vy - 1.0)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j + 1)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j + 1)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j + 1))/2 + Vy*(Vy + 1.0)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j - 1)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j - 1)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j - 1))/2 + (1.0-Vy*Vy)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j))
+
+WW_stencil
+Vy*(Vy/2-1.0)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j + 2)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j + 2)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j + 2))/4 + Vy*(Vy/2+1.0)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j - 2)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j - 2)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j - 2))/4 + (-Vy*Vy/4 + 1)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j))
+
+WF_stencil
+(-Vy*Vy/16 + 9.0/16)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j - 1)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j - 1)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j - 1)) + (-Vy*Vy/16 + 9.0/16)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j + 1)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j + 1)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j + 1)) + (Vy*Vy/16 - Vy/6 - 1.0/16)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j + 3)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j + 3)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j + 3)) + (Vy*Vy/16 + Vy/6 - 1.0/16)*(Ux*(Ux/2-1.0)*Vh(u, i + 2, j - 3)/4 + Ux*(Ux/2+1.0)*Vh(u, i - 2, j - 3)/4 + (-Ux*Ux/4 + 1)*Vh(u, i, j - 3))
+
+FN_stencil
+Vy*(Vy - 1.0)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j + 1) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j + 1) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j + 1) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j + 1))/2 + Vy*(Vy + 1.0)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j - 1) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j - 1) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j - 1) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j - 1))/2 + (1.0-Vy*Vy)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j))
+
+FW_stencil
+Vy*(Vy/2-1.0)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j + 2) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j + 2) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j + 2) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j + 2))/4 + Vy*(Vy/2+1.0)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j - 2) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j - 2) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j - 2) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j - 2))/4 + (-Vy*Vy/4 + 1)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j))
+
+FF_stencil
+(-Vy*Vy/16 + 9.0/16)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j - 1) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j - 1) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j - 1) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j - 1)) + (-Vy*Vy/16 + 9.0/16)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j + 1) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j + 1) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j + 1) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j + 1)) + (Vy*Vy/16 - Vy/6 - 1.0/16)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j + 3) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j + 3) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j + 3) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j + 3)) + (Vy*Vy/16 + Vy/6 - 1.0/16)*((-Ux*Ux/16 + 9.0/16)*Vh(u, i - 1, j - 3) + (-Ux*Ux/16 + 9.0/16)*Vh(u, i + 1, j - 3) + (Ux*Ux/16 - Ux/6 - 1.0/16)*Vh(u, i + 3, j - 3) + (Ux*Ux/16 + Ux/6 - 1.0/16)*Vh(u, i - 3, j - 3))
