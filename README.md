@@ -12,7 +12,7 @@ This is the project repo for COMP8755 individual project. In this project, we ar
 
 ## Files Description
 
-In this repo, there are three dierctories and one report. The report is the final project report. For more details, please read the report.
+In this repo, there are three dierctories and one report. The report is the final project report. For more details about this project, please read the report.
 
 The program in the "Original code" directory is the orignal program without any modification. There is a README file in the directory to descripe how to execute this program.
 
